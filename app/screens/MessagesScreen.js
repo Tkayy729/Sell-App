@@ -28,7 +28,7 @@ function MessagesScreen(props) {
   const handleDelete = (message) => {
     // Delete the message from messages
     setMessages(messages.filter((m) => m.id !== message.id));
-  };
+  }; 
 
   return (
     <Screen>
