@@ -1,5 +1,5 @@
-import React from 'react';
-import { View  } from 'react-native';
+import React ,{useState} from 'react';
+import { Text, TextInput, View  } from 'react-native';
 import Card from './app/components/Card'
 import ListingsDetailsScreen from './app/screens/ListingsDetailsScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
@@ -10,10 +10,16 @@ import Screen from './app/components/Screen';
 import ListItem from './app/components/ListItem';
 import AccountScreen from './app/screens/AccountScreen';
 import ListingsScreen from './app/screens/ListingsScreen';
+import AppTextIpnput from './app/components/AppTextIpnput';
 
 export default function App() {
 
-  return <ListingsScreen />
+  return (
+    <Screen>
+    <AppTextIpnput  icon="email" placeholder="Username"/>
+    
+    </Screen>
+  );
   
  }
 
