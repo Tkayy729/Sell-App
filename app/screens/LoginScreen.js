@@ -7,8 +7,6 @@ import AppButton from "../components/AppButton";
 import Screen from "../components/Screen";
 
 function LoginScreen(props) {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
 
   return (
     <Screen style={styles.container}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
+import { Formik } from "formik";
 
 import AppTextInput from '../components/AppTextInput';
 import AppPicker from '../components/AppPicker'
@@ -10,16 +11,48 @@ import AppButton from '../components/AppButton';
 function ListingEditScreen(props) {
     return (
         <Screen style={styles.container}>
-            <AppTextInput placeholder="Title" />
-            <AppTextInput placeholder="Price" />
-            <AppPicker placeholder="Category" />
-            <AppTextInput placeholder="Description" />
-            <AppButton title="POST" />
+            <Formik
+                initialValues={{ email: "", password: "" }}
+                onSubmit={(values) => console.log(values)}
+            >
+                {({ handleChange, handleSubmit }) => (
+                    <>
+                        <AppTextInput
+                            autoCapatalize="none"
+                            autoCorrect={false}
+                            placeholder="Title"
+                            onChangeText={handleChange("title")}
+                        />
+                        <AppTextInput
+                            autoCapatalize="none"
+                            autoCorrect={false}
+                            placeholder="Price"
+                            onChangeText={handleChange("price")}
+                        />
+                        <AppPicker
+                            autoCapatalize="none"
+                            autoCorrect={false}
+                            placeholder="Category"
+                            onChangeText={handleChange("category")}
+                        />
+                        <AppTextInput
+                            autoCapatalize="none"
+                            autoCorrect={false}
+                            placeholder="Description"
+                            onChangeText={handleChange("description")}
+                        />
+                        <AppButton
+                            title="POST"
+                            onPress={handleSubmit}
+                        />
+                    </>
+                )}
+            </Formik>
         </Screen>
     );
 }
 const styles = StyleSheet.create({
-    container:{
+    container: {
         padding: 10
     }
 })
