@@ -6,10 +6,10 @@ import * as Yup from 'yup'
 
 
 import Screen from '../components/Screen';
-import AppFormField from '../components/AppFormField';
-import SubmitButton from '../components/SubmitButton';
+import AppFormField from '../components/forms/AppFormField';
+import SubmitButton from '../components/forms/SubmitButton';
 import AppFormPicker from '../components/AppFormPicker';
-import AppForm from '../components/AppForm';
+import AppForm from '../components/forms/AppForm';
 
 const validationSchema = Yup.object().shape({
     title: Yup.string().required().min(1).label("Title"),
@@ -19,42 +19,48 @@ const validationSchema = Yup.object().shape({
 
 });
 
+const categories = [
+    { label: "Furniture", value: 1 },
+    { label: "Clothing", value: 2 },
+    { label: "Camera", value: 3 },
+  ];
+
 
 function ListingEditScreen(props) {
     return (
         <Screen style={styles.container}>
             <AppForm
-                initialValues={{ email: "", password: "" }}
+                initialValues={{
+                    title: "",
+                    price: "",
+                    description: "",
+                    category: null,
+                }}
                 onSubmit={(values) => console.log(values)}
                 validationSchema={validationSchema}
             >
 
-                <AppFormField
-                    autoCapatalize="none"
-                    autoCorrect={false}
-                    placeholder="Title"
-                    name="title"
-                />
+                <AppFormField maxLength={255} name="title" placeholder="Title" />
 
                 <AppFormField
-                    autoCapatalize="none"
-                    autoCorrect={false}
+                    keyboardType="numeric"
+                    maxLength={8}
                     placeholder="Price"
                     name="price"
                 />
 
-                <AppFormPicker
-                    autoCapatalize="none"
-                    autoCorrect={false}
-                    placeholder="Category"
+                <AppFormPicker 
+                    items={categories}
                     name="category"
+                    placeholder="Category"
                 />
 
                 <AppFormField
-                    autoCapatalize="none"
-                    autoCorrect={false}
-                    placeholder="Description"
-                    name="description"
+                     maxLength={255}
+                     multiline
+                     name="description"
+                     numberOfLines={3}
+                     placeholder="Description"
                 />
                 <SubmitButton title="POST" />
             </AppForm>

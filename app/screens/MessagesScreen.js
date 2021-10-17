@@ -1,23 +1,23 @@
 import React, { useState } from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 
 import Screen from "../components/Screen";
-import ListItem from "../components/ListItem";
-import ListItemSeparator from "../components/ListItemSeparator";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
+import ListItem from "../components/lists/ListItem";
+import ListItemSeparator from "../components/lists/ListItemSeparator";
+import ListItemDeleteAction from "../components/lists/ListItemDeleteAction";
 
 const initialMessages = [
   {
     id: 1,
-    title: "T1",
+    title: "Emmanuel hgkhjk jhhj jhjn lkjikjmnnjk",
     description: "D1",
     image: require("../assets/mosh.jpg"),
   },
   {
     id: 2,
-    title: "T2",
+    title: "Frank",
     description: "D2",
-    image: require("../assets/mosh.jpg"),
+    image: require("../assets/tkayy.jpg"),
   },
 ];
 
@@ -28,7 +28,7 @@ function MessagesScreen(props) {
   const handleDelete = (message) => {
     // Delete the message from messages
     setMessages(messages.filter((m) => m.id !== message.id));
-  }; 
+  };
 
   return (
     <Screen>

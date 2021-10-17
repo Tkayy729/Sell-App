@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet} from 'react-native'
 
-import colors from '../config/colors';
+import defaultStyles from '../../config/styles';
 
 function ListItemSeparator() {
     return (
@@ -10,7 +10,7 @@ function ListItemSeparator() {
 }
 const styles = StyleSheet.create({
    separator:{
-       backgroundColor:colors.light ,
+       backgroundColor: defaultStyles.colors.light ,
        height: 1,
         width: "100%"
    }

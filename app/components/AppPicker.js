@@ -27,7 +27,11 @@ function AppPicker({ icon, items, selectedItem, onSelectItem, placeholder }) {
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text}>{selectedItem ? selectedItem.label : placeholder}</AppText>
+          {selectedItem ? (
+            <AppText style={styles.text}>{selectedItem.label}</AppText>
+          ) : (
+            <AppText style={styles.placeholder}>{placeholder}</AppText>
+          )}
           <MaterialCommunityIcons
             name={"chevron-down"}
             size={20}
@@ -44,10 +48,10 @@ function AppPicker({ icon, items, selectedItem, onSelectItem, placeholder }) {
             renderItem={({ item }) => (
               <PickerItem
                 label={item.label}
-                onPress={ () => {
+                onPress={() => {
                   setModalVisible(false);
                   onSelectItem(item);
-                } }
+                }}
               />
             )}
           />
@@ -67,6 +71,10 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: 10,
+  },
+  placeholder: {
+    color: defaultStyles.colors.medium,
+    flex: 1,
   },
   text: {
     flex: 1,
